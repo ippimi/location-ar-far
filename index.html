@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>AR.js Basic Projected Camera Example</title>
-        <script src="https://aframe.io/releases/master/aframe.min.js"></script>
+        <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
         <!-- Look-at component. We don't need this now, but we will later. -->
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
@@ -16,7 +16,7 @@
         <a-box gps-projected-entity-place='latitude: 61.680679; longitude: 27.257425' material='color: blue' scale='10 10 10'></a-box>
         <a-box gps-projected-entity-place='latitude: 61.678925; longitude: 27.265917' material='color: yellow' scale='10 10 10'></a-box>
         
-            <a-camera gps-projected-camera rotation-reader></a-camera>
+           <a-camera gps-camera rotation-reader></a-camera>
      
         </a-scene>
     </body>
