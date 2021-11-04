@@ -6,20 +6,36 @@
     <title>testausta</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
   </head>
-<style>
-
-model-viewer {
-
-width:400px;
-height: 600px;
-margin: 0 auto;
-
-}
-
-</style>
-  <body>
-     
-    <model-viewer src="assets/magnemite/scene.gltf" camera-controls auto-rotate ar ar-modes="ar_preferred"></model-viewer>
-    
+  <model-viewer id="model-viewer" src="../../shared-assets/models/Astronaut.glb" ar ar-modes="scene-viewer webxr" camera-controls alt="A 3D model of an astronaut" skybox-image="../../shared-assets/environments/aircraft_workshop_01_1k.hdr">
+    <div id="error" class="hide">AR is not supported on this device</div>
+  </model-viewer>
+  <script>
+    document.querySelector("#model-viewer").addEventListener('ar-status', (event) => {
+      if(event.detail.status === 'failed'){
+        const error = document.querySelector("#error");
+        error.classList.remove('hide');
+        error.addEventListener('transitionend',(event) => {
+          error.classList.add('hide');
+        });
+      }
+    });
+  </script>
+  <style>
+    #error {
+      background-color: #ffffffdd;
+      border-radius: 16px;
+      padding: 16px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      transition: opacity 0.3s;
+    }
+    #error.hide {
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 2s, opacity 1s 1s;
+    }
+  </style>
   </body>
 </html>
